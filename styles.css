@@ -1,0 +1,374 @@
+/* Style for the whole page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #e0e0e0; 
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+    height: 100vh;
+}
+
+ 
+/* Style for the chating interface  */
+#interface-container {
+    max-width: 900px;
+    gap: 30px;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+/* Style for the chating area within the general interface */
+#chat-container {
+    position: relative;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Lighter shadow for dark mode */
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0px auto;
+    width: 100%;
+    border: 1px black solid;
+}
+
+#chat-window {
+    background-color: #d4d4d4; 
+    height: 85vh;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* Style for the user/system messages */
+.message {
+    padding: 10px 15px;
+    border-radius: 10px; 
+    margin-bottom: 5px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+
+/* Style for the system/assistant messages */
+.assistant {
+    background-color: #495057;
+    color: white;
+    align-self: flex-start;
+}
+
+.error {
+    background-color: #ff3b30; /* Error message in red */
+    color: white;
+}
+
+#status {
+    color: #aaa; /* Lighter text for status in dark mode */
+    padding: 5px 20px;
+    text-align: center;
+    background-color: #141414; /* Matching chat window background */
+    border-top: 1px solid #333; /* Darker border for status bar */
+}
+
+
+/* Style for the map to be displayed */
+.map {
+    display: none; 
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px auto;
+    width: 75%;
+    height: 772px;
+    align-self: flex-start;
+}
+
+/* Style for the user message specifically */
+.user {
+    background-color: #0a84ff; 
+    color: white; /* Ensure text is white for readability */
+    align-self: flex-end; /* Align to the right */
+}
+
+/* Container where the results are to be displayed */
+#search-results-container {
+    background-color: #495057;
+    display: none; /* Initially hidden */
+    max-width: 600px;
+    margin-top: 20px;
+}
+#search-results {
+    background-color: #141414; 
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); 
+    overflow: hidden;
+    padding: 15px;
+}
+.search-result {
+    border-bottom: 1px solid #333; /* Dark mode border for search results */
+    padding: 10px 0;
+}
+.search-result:last-child {
+    border-bottom: none;
+}
+.search-result-title {
+    color: #0a84ff; 
+    font-weight: bold;
+}
+.search-result-details {
+    color: #ccc; 
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+
+/* Style for the side menu where the instructions for the voice commands is to be displayed */
+#side-menu {
+    position: fixed;
+    bottom: 20px; /* Adjust spacing from the bottom */
+    right: 20px; /* Adjust spacing from the left */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+
+/* Style for the micrphone toggle button */
+.mic-toggle {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 10px; 
+    margin-top: 10px;
+    overflow: hidden; /* Ensures the image does not overflow the rounded corners */
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    bottom: 80px;
+}
+
+
+/* Style for the content of the menu section */
+#menu-content {
+    background-color: #495057;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 48px;
+    padding: 15px;
+    width: 300px;
+    margin-right: 402px;
+}
+#menu-content.hidden {
+    display: none;
+}
+#menu-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#menu-content ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Style for the error message popup */
+.status-message {
+    position: fixed;
+    top: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 0, 0, 0.7); /* Semi-transparent red background */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none; /* Initially hidden */
+    z-index: 1000; 
+}
+
+
+.message.assistant ul {
+    list-style: none; 
+    padding-left: 0; 
+    margin-top: 5px; 
+}
+
+
+.message.assistant ul li a {
+    color: #ffd700; 
+    text-decoration: none; 
+}
+
+.message.assistant ul li a:hover {
+    text-decoration: underline; 
+}
+
+
+.map-container {
+    min-width: 300px; 
+    min-height: 300px; 
+}
+
+.book-image {
+    width: 80px; 
+    height: auto;
+    margin-right: 10px;
+}
+
+.book-link {
+    margin-left: 10px;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+}
+.search-result-item, .message.assistant {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    flex-wrap: wrap; /* to wrap in case of overflow */
+    gap: 10px; /* Space between items */
+}
+
+.message.assistant span, .message.assistant a {
+    max-width: 60%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.book-image {
+    width: 100px; 
+    height: auto; 
+    flex-shrink: 0; /* Prevents resizing */
+}
+
+.message {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: flex-start; /* Align items to the start of the container */
+    gap: 5px; /* Space between child elements */
+}
+
+/* Update the message styles to be displayed as flex */
+.message {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Adjust the alignment of user and assistant messages */
+.assistant .profile-pic, .assistant .message-label {
+    order: -1; 
+}
+
+.user .message-content {
+    order: 1; 
+}
+
+/* Side Menu styles */
+#side-menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    width: 250px; 
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #menu-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #menu-content li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none; 
+    margin-bottom: 5px; 
+    }
+    
+  /* Tooltip styles */
+  .tooltip {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 105%; 
+  
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .tooltip-icon {
+    width: 18px; 
+    height: 18px; 
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background-color: #f1f1f1;
+}
+
+.chat-window {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 400px; 
+    overflow-y: auto;
+    margin-top: 60px;
+}
+
+.mic-toggle {
+    cursor: pointer;
+}
+#mic-icon {
+    position: absolute;
+    top: 0px; 
+    right: 0px; 
+    width: 50px; 
+    height: auto;
+    cursor: pointer;
+    margin-bottom: 20px;
+    
+}

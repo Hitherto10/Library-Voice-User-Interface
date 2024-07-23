@@ -1,0 +1,277 @@
+[
+  {
+    "courseCode": "CS 1500",
+    "courseTitle": "Computing Systems Architecture and Operating Systems",
+    "textbooks": [
+      {
+        "title": "Computer Organization and Design: The Hardware/Software Interface",
+        "author": "David A. Patterson, John L. Hennessy",
+        "year": 2017
+      },
+      {
+        "title": "Operating System Concepts",
+        "author": "Abraham Silberschatz, Peter B. Galvin, Greg Gagne",
+        "year": 2018
+      }
+    ],
+    "resources": [
+      {
+        "type": "Lecture Notes",
+        "link": "https://example.edu/cst1500/lectures"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/So9SR3qpWsM"
+  },
+  {
+    "courseCode": "CS 1520",
+    "courseTitle": "Science, Technology, Engineering and Mathematics",
+    "textbooks": [
+      {
+        "title": "Engineering Mathematics",
+        "author": "K.A. Stroud, Dexter J. Booth",
+        "year": 2013
+      }
+    ],
+    "resources": [
+      {
+        "type": "Online Tutorials",
+        "link": "https://example.edu/cst1520/tutorials"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/youBZ-jE8oo"
+  },
+  {
+    "courseCode": "CS 1340",
+    "courseTitle": "Information in Organisations",
+    "textbooks": [
+      {
+        "title": "Management Information Systems: Managing the Digital Firm",
+        "author": "Kenneth C. Laudon, Jane P. Laudon",
+        "year": 2016
+      }
+    ],
+    "resources": [
+      {
+        "type": "Case Studies",
+        "link": "https://example.edu/cst1340/cases"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/U7EQAbjBUqA"
+  },
+  {
+    "courseCode": "CS 1510",
+    "courseTitle": "Programming for Data Communication and Networks",
+    "textbooks": [
+      {
+        "title": "Computer Networking: A Top-Down Approach",
+        "author": "James F. Kurose, Keith W. Ross",
+        "year": 2017
+      }
+    ],
+    "resources": [
+      {
+        "type": "Lab Exercises",
+        "link": "https://example.edu/cst1510/labs"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/DInMru2Eq6E"
+  },
+  {
+    "courseCode": "PDE 3413",
+    "courseTitle": "Systems Engineering for Robotics",
+    "textbooks": [
+      {
+        "title": "Introduction to Robotics: Mechanics and Control",
+        "author": "John J. Craig",
+        "year": 2017
+      }
+    ],
+    "resources": [
+      {
+        "type": "Simulation Tools",
+        "link": "https://example.edu/pde3413/rq_Xl71d3tE"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/So9SR3qpWsM"
+  },
+  {
+    "courseCode": "CS 2310",
+    "courseTitle": "Information Systems Analysis and Design",
+    "textbooks": [
+      {
+        "title": "Systems Analysis and Design",
+        "author": "Alan Dennis, Barbara Haley Wixom, Roberta M. Roth",
+        "year": 2019
+      }
+    ],
+    "resources": [
+      {
+        "type": "Design Templates",
+        "link": "https://example.edu/cst2310/templates"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/rK0xSNQeHnU"
+  },
+  {
+    "courseCode": "CS 2550",
+    "courseTitle": "Software Engineering Management and Development",
+    "textbooks": [
+      {
+        "title": "Software Engineering (10th Edition)",
+        "author": "Ian Sommerville",
+        "year": 2015
+      }
+    ],
+    "resources": [
+      {
+        "type": "Agile Development Resources",
+        "link": "https://example.edu/cst2550/agile"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/McojvctVsUs"
+  },
+  {
+    "courseCode": "CS 2120",
+    "courseTitle": "Web Applications and Databases",
+    "textbooks": [
+      {
+        "title": "Learning PHP, MySQL & JavaScript: With jQuery, CSS & HTML5 (5th Edition)",
+        "author": "Robin Nixon",
+        "year": 2018
+      }
+    ],
+    "resources": [
+      {
+        "type": "Interactive Web Development Tutorials",
+        "link": "https://example.edu/cst2120/webdev"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/oo9igF5jmvpAa8ui"
+  },
+  {
+    "courseCode": "CS 2560",
+    "courseTitle": "Project Management and Professional Practice",
+    "textbooks": [
+      {
+        "title": "A Guide to the Project Management Body of Knowledge (PMBOK Guide)–Sixth Edition",
+        "author": "Project Management Institute",
+        "year": 2017
+      }
+    ],
+    "resources": [
+      {
+        "type": "Project Management Simulation Tools",
+        "link": "https://example.edu/cst2560/pmsim"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/uWPIsaYpY7U"
+  },
+  {
+    "courseCode": "CS 3990",
+    "courseTitle": "UG Individual Project",
+    "textbooks": [],
+    "resources": [
+      {
+        "type": "Research Methodology Resources",
+        "link": "https://example.edu/cst3990/research"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/YZLCwNjh16w"
+  },
+  {
+    "courseCode": "CS 3140",
+    "courseTitle": "Novel Interactive technologies",
+    "textbooks": [
+      {
+        "title": "Designing Interactive Systems: A Comprehensive Guide to HCI, UX & Interaction Design (3rd Edition)",
+        "author": "David Benyon",
+        "year": 2014
+      }
+    ],
+    "resources": [
+      {
+        "type": "Emerging Technologies Discussion Forum",
+        "link": "https://example.edu/cst3140/forum"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/0yOi-lM50II"
+  },
+  {
+    "courseCode": "CS 3180",
+    "courseTitle": "UX Design",
+    "textbooks": [
+      {
+        "title": "The Design of Everyday Things: Revised and Expanded Edition",
+        "author": "Don Norman",
+        "year": 2013
+      },
+      {
+        "title": "Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability (3rd Edition)",
+        "author": "Steve Krug",
+        "year": 2014
+      }
+    ],
+    "resources": [
+      {
+        "type": "UX Design Templates",
+        "link": "https://example.edu/cst3180/templates"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/t0aCoqXKFOU"
+  },
+  {
+    "courseCode": "CS 3170",
+    "courseTitle": "Artificial Intelligence",
+    "textbooks": [
+      {
+        "title": "Artificial Intelligence: A Modern Approach (4th Edition)",
+        "author": "Stuart Russell, Peter Norvig",
+        "year": 2020
+      }
+    ],
+    "resources": [
+      {
+        "type": "AI Algorithms and Data Sets",
+        "link": "https://example.edu/cst3170/ai-resources"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/SSE4M0gcmvE"
+  },
+  {
+    "courseCode": "CS 3130",
+    "courseTitle": "Advanced Web Development with Big Data",
+    "textbooks": [
+      {
+        "title": "Big Data: Principles and best practices of scalable realtime data systems",
+        "author": "Nathan Marz, James Warren",
+        "year": 2015
+      }
+    ],
+    "resources": [
+      {
+        "type": "Big Data Tools and Frameworks",
+        "link": "https://example.edu/cst3130/bigdata"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/bAyrObl7TYE"
+  },
+  {
+    "courseCode": "CS 3110",
+    "courseTitle": "Testing and Verification",
+    "textbooks": [
+      {
+        "title": "Software Testing and Analysis: Process, Principles, and Techniques",
+        "author": "Mauro Pezzè, Michal Young",
+        "year": 2015
+      }
+    ],
+    "resources": [
+      {
+        "type": "Resources on Testing and Verification",
+        "link": "https://example.edu/cst3130/bigdata"
+      }
+    ],
+    "videoLink": "https://www.youtube.com/embed/l-qrwygL7Nc"
+  }
+]
+  

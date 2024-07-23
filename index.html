@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Library VUI Assistant</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <script src="script.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgLxoNCDOszTBd_9Kuo2Mxk6vX6-V8UH0&callback=initMap"></script>
+    </head>
+    <body>
+
+        <!-- Status message container for dynamic notifications -->
+        <div id="status-message" class="status-message"></div>
+        
+        <!-- Main interface container for the chat interface -->
+        <div id="interface-container">
+            <div id="chat-container">
+
+        <!-- Container for chat messages -->
+                <div id="chat-window">
+                    <div id="assistant-message" class="message assistant"></div>
+                </div>
+
+        <!-- Chat window header with the microphone toggle button -->
+                <div id="status">Allow Microphone Permission to Start</div>
+                <header class="chat-header">
+                    <div id="mic-icon" class="mic-toggle">
+
+        <!-- Microphone icon that toggles the speech recognition -->
+                        <img id="mic-icon-img" src="microphone.png" alt="Toggle Microphone" style="width: 70%; height: auto;">
+                    </div>
+                </header>
+            </div>
+            
+        <!-- Container for displaying the map -->
+            <div id="map" class="map"></div>
+
+        <!-- Container for displaying search results -->
+            <div id="search-results-container">
+                <div id="search-results">
+                </div>
+            </div>
+        </div>
+        <div id="side-menu">
+            <div id="menu-content">
+                <ul style="font-family: 'Montserrat', sans-serif;">
+
+        <!-- List of voice commands with tool-tips that provide more information -->
+        <!-- Each tooltip contains a command, a help icon, and a description of the command -->
+                    <li>
+                        <div class="command">"Hello" or "Hi"</div>
+                        <div class="tooltip">
+                            <img src="help-web-button.png" alt="?" class="tooltip-icon">
+                            <span class="tooltiptext">Initiate interaction with the voice assistant by greeting it with "Hello" or "Hi".</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="command">"Find books on [topic]"</div>
+                        <div class="tooltip"><img src="help-web-button.png" alt="?" class="tooltip-icon">
+                            <span class="tooltiptext">Search for books related to your topic of interest using the middlesex Library.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="command">"Google Books on [topic]"</div>
+                        <div class="tooltip"><img src="help-web-button.png" alt="?" class="tooltip-icon">
+                            <span class="tooltiptext">Search for books related to your topic of interest using Google Books.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="command">"Show me reading sources"</div>
+                        <div class="tooltip"><img src="help-web-button.png" alt="?" class="tooltip-icon">
+                            <span class="tooltiptext">Request the reading list specifically related to third-year Computer Science .</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="command">"Open Link [Corresponding Link Number]"</div>
+                        <div class="tooltip"><img src="help-web-button.png" alt="?" class="tooltip-icon">
+                            <span class="tooltiptext">Open a hyperlink to access the reading list resources. Say [Corresponding Link Number] with the actual number of the link provided.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="command">"Libraries near me"</div>
+                        <div class="tooltip"><img src="help-web-button.png" alt="?" class="tooltip-icon">
+                            <span class="tooltiptext">Find libraries located near your current geographical position on a map.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="command">"Close map"</div>
+                        <div class="tooltip"><img src="help-web-button.png" alt="?" class="tooltip-icon">
+                            <span class="tooltiptext">Close the map view and return to the main chat interface.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="command">"Ask OpenAI"</div>
+                        <div class="tooltip"><img src="help-web-button.png" alt="?" class="tooltip-icon">
+                            <span class="tooltiptext">Pose a question to the OpenAI's language model for a text-based answer within the chat interface by including "Ask OpenAI in your sentence".</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="command">"Course Materials for"</div>
+                        <div class="tooltip"><img src="help-web-button.png" alt="?" class="tooltip-icon">
+                            <span class="tooltiptext">Request specific course materials by following this prompt with the course code or name.<br> below are the available courses:<br>
+                                (1) CS1500 - Computing Systems Architecture and Operating Systems<br>
+                                (2) CS1520 - Science, Technology, Engineering and Mathematics<br>
+                                (3) CS1340 - Information in Organisations<br>
+                                (4) CS1510 - Programming for Data Communication and Networks<br>
+                                (5) PDE3413 - Systems Engineering for Robotics<br>
+                                (6) CS2310 - Information Systems Analysis and Design<br>
+                                (7) CS2550 - Software Engineering Management and Development<br>
+                                (8) CS2120 - Web Applications and Databases<br>
+                                (9) CS2560 - Project Management and Professional Practice<br>
+                                (10) CS3990 - UG Individual Project<br>
+                                (11) CS3140 - Novel Interactive technologies<br>
+                                (12) CS3180 - UX Design<br>
+                                (13) CS3170 - Artificial Intelligence<br>
+                                (14) CS3130 - Advanced Web Development with Big Data<br>
+                                (15) CS3110 - Testing and Verification<br></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
