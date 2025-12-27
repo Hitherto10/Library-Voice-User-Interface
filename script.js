@@ -4,7 +4,7 @@ function initMap() {
     // Create a new map centered on coordinates corresponding to Mauritius
     const map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
-        center: { lat: -20.348404, lng: 57.552152 } 
+        center: { lat: -20.348404, lng: 57.552152 }
     });
 
     // Array of objects containing latitude and longitude for library locations
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const statusDiv = document.getElementById('status');
     let listeningForTrigger = true;
 
-    
+
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const SpeechSynthesisUtterance = window.SpeechSynthesisUtterance || window.webkitSpeechSynthesisUtterance;
@@ -96,32 +96,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const lastResultIndex = event.results.length - 1;
 
         // Retrieve the transcript from the last result, convert it to lowercase, remove any periods, and trim whitespace
-        const speechResult = event.results[lastResultIndex][0].transcript.toLowerCase().replace(/[.]/g, '').trim(); 
+        const speechResult = event.results[lastResultIndex][0].transcript.toLowerCase().replace(/[.]/g, '').trim();
         console.log(speechResult);
-            
+
         // If the user says "close map", hide the map and stop listening for further speech input
         if (speechResult.includes("close map")) {
             showUserMessage(speechResult);
             document.getElementById('map').style.display = 'none';
             listeningForTrigger = false;
-        } 
-        
+        }
+
         // If the user invokes the openAI ChatGPT, process the request and stop speech recognition
-        else if (speechResult.includes("ask open ai")) { 
+        else if (speechResult.includes("ask open ai")) {
             showUserMessage(speechResult);
-            getGptResponse(speechResult); 
+            getGptResponse(speechResult);
             recognition.stop();
             listeningForTrigger = false;
-        } 
-        
+        }
+
         // display Library markers on a map of mauritius
         else if (speechResult.includes("libraries near me")) {
             showUserMessage(speechResult);
             speakAndShow("Below are Libraries located in Mauritius");
-            showMapWithLibraries(); 
+            showMapWithLibraries();
             listeningForTrigger = false;
-        } 
-        
+        }
+
         // For "Google Books on [topic]", extract the topic and fetch relevant books
         else if (speechResult.match(/google books on (.+)/i)) {
             showUserMessage(speechResult);
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const searchTerm = speechResult.match(/google books on (.+)/i)[1];
             fetchGoogleBooks(searchTerm);
             listeningForTrigger = false;
-        } 
+        }
 
         // Check if the speech result matches the pattern
         else if (speechResult.match(/^find books on (.+)$/)) {
@@ -138,15 +138,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const topic = speechResult.match(/^find books on (.+)$/)[1];
             findBooksOnTopic(topic);
             listeningForTrigger = false;
-        } 
-        
+        }
+
         // Display a list of books and articles related to Year 3 Computer Science
         else if (speechResult.includes("show me reading sources")) {
             showUserMessage(speechResult);
             fetchMatsSearchResults("java");
             listeningForTrigger = false;
-        } 
-        
+        }
+
         // Show Course materials for all modules available to computer science students of all years
         else if (speechResult.includes("course materials for")) {
             showUserMessage(speechResult);
@@ -155,8 +155,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const courseCode = courseCodeMatch[1].toLowerCase(); // Assuming course codes are uppercase
                 fetchCourseMaterials(courseCode);
             }
-        } 
-        
+        }
+
         // Functionality to recognize the links from the reading list and open them accoridngly
         else if (speechResult.match(/open link (one|two|three|four|1|2|3|4)/)) {
             showUserMessage(speechResult);
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             showStatusMessage("Command not recognized. Please try again.");
         }
-    };  
+    };
 
 
     // This event handler catches any errors that occur during speech recognition
@@ -227,16 +227,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function showStatusMessage(message) {
         const statusMessage = document.getElementById('status-message');
         statusMessage.textContent = message;
-        
+
         // Make the status message visible
         statusMessage.style.display = "block";
-    
+
         // Set a timeout to hide the status message after 5 seconds
         setTimeout(() => {
-            statusMessage.style.display = "none"; 
-        }, 5000); 
+            statusMessage.style.display = "none";
+        }, 5000);
     }
-    
+
 
     // Function to open the library search page with the topic in a new tab
     function findBooksOnTopic(topic) {
@@ -244,10 +244,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const vid = '44MUN_INST:hendon';
         const lang = 'en';
         const query = encodeURIComponent(topic); // Ensures the search term is URL-safe
-    
+
         // Construct the full URL with the search term included
         const searchUrl = `${baseUrl}vid=${vid}&lang=${lang}&query=any,contains,${query}`;
-    
+
         // Open the constructed URL in a new tab
         window.open(searchUrl, '_blank');
     }
@@ -266,18 +266,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show the map with library locations in the chat window
     function showMapWithLibraries() {
         const mapContainer = document.createElement('div');
-        mapContainer.classList.add('map-container', 'message', 'assistant'); 
-        mapContainer.style.width = '80%'; 
-        mapContainer.style.height = '400px'; 
-    
-        
+        mapContainer.classList.add('map-container', 'message', 'assistant');
+        mapContainer.style.width = '80%';
+        mapContainer.style.height = '400px';
+
+
         mapContainer.id = 'map';
         const chatWindow = document.getElementById('chat-window');
         chatWindow.appendChild(mapContainer);
-    
+
         // Initialize the map within the container
-        initMap(); 
-        
+        initMap();
+
         if (window.google && window.google.maps) {
             google.maps.event.trigger(map, 'resize');
         }
@@ -293,8 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mapContainer) {
             // Trigger a resize event on the map
             google.maps.event.trigger(map, 'resize');
-            mapContainer.style.height = '400px'; 
-            mapContainer.style.width = '80%'; 
+            mapContainer.style.height = '400px';
+            mapContainer.style.width = '80%';
         }
     }
 
@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch course materials for a specific course code
     function fetchCourseMaterials(courseCode) {
         // Make a network request to your server's endpoint for course materials
-        fetch(`http://localhost:8080/course-materials?courseCode=${courseCode}`)
+        fetch(`/course-materials?courseCode=${courseCode}`)
             .then(response => response.json())
             .then(courseData => {
                 displayCourseMaterials(courseData);
@@ -310,41 +310,24 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => {
                 // Log any errors to the console
                 console.error('Error fetching course materials:', error);
-                // Notify the user that the course materials could not be found and the available courses
-                const errorMessage = `Could not find materials for course code ${courseCode}. 
-                                        Below are the courses available:<br>
-                                        (1) CS1500 - Computing Systems Architecture and Operating Systems<br>
-                                        (2) CS1520 - Science, Technology, Engineering and Mathematics<br>
-                                        (3) CS1340 - Information in Organisations<br>
-                                        (4) CS1510 - Programming for Data Communication and Networks<br>
-                                        (5) PDE3413 - Systems Engineering for Robotics<br>
-                                        (6) CS2310 - Information Systems Analysis and Design<br>
-                                        (7) CS2550 - Software Engineering Management and Development<br>
-                                        (8) CS2120 - Web Applications and Databases<br>
-                                        (9) CS2560 - Project Management and Professional Practice<br>
-                                        (10) CS3990 - UG Individual Project<br>
-                                        (11) CS3140 - Novel Interactive technologies<br>
-                                        (12) CS3180 - UX Design<br>
-                                        (13) CS3170 - Artificial Intelligence<br>
-                                        (14) CS3130 - Advanced Web Development with Big Data<br>
-                                        (15) CS3110 - Testing and Verification<br></span>
-                                        `; 
+                // Notify the user that the course materials could not be found
+                const errorMessage = `Could not find materials for course code ${courseCode}.`;
                 speakAndShow(errorMessage);
             });
     }
-    
+
 
     // Display the corresponding course materials for the selected course
     function displayCourseMaterials(courseData) {
         let courseMaterialsDiv = document.createElement('div');
         courseMaterialsDiv.classList.add('message', 'assistant');
-    
+
         // Course name label and content
         let courseNameLabel = document.createElement('div');
         courseNameLabel.innerHTML = `<strong>Course Name:</strong><br>`;
         let courseName = document.createElement('div');
         courseName.textContent = `${courseData.courseCode}: ${courseData.courseTitle}`;
-    
+
         // Books available label and content
         let booksAvailableLabel = document.createElement('div');
         booksAvailableLabel.innerHTML = `<strong>Books Available:</strong>`;
@@ -358,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             booksList.textContent = 'No textbooks listed.';
         }
-    
+
         // Resources label and content
         let resourcesLabel = document.createElement('div');
         resourcesLabel.innerHTML = `<strong>Resources:</strong>`;
@@ -384,15 +367,15 @@ document.addEventListener('DOMContentLoaded', () => {
             videoFrame.width = "560"; // width of the video
             videoFrame.height = "315"; // height of the video
             // Ensure that you are using the embed URL format as shown below
-            videoFrame.src = courseData.videoLink; 
+            videoFrame.src = courseData.videoLink;
             videoFrame.frameBorder = "0";
             videoFrame.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
             videoFrame.allowFullscreen = true;
             courseMaterialsDiv.appendChild(videoLabel);
             courseMaterialsDiv.appendChild(videoFrame);
         }
-        
-    
+
+
         // Assembling the message
         courseMaterialsDiv.appendChild(courseNameLabel);
         courseMaterialsDiv.appendChild(courseName);
@@ -400,12 +383,12 @@ document.addEventListener('DOMContentLoaded', () => {
         courseMaterialsDiv.appendChild(booksList);
         courseMaterialsDiv.appendChild(resourcesLabel);
         courseMaterialsDiv.appendChild(resourcesList);
-    
+
         chatWindow.appendChild(courseMaterialsDiv);
         scrollChatToBottom();
     }
-    
-    
+
+
     // This functions displays and then reads out parametres
     function speakAndShow(message) {
         if (typeof message !== 'string') {
@@ -415,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let utterance = new SpeechSynthesisUtterance(message);
         window.speechSynthesis.speak(utterance);
-    
+
         let assistantMessageDiv = document.createElement('div');
         assistantMessageDiv.classList.add('message', 'assistant');
 
@@ -455,58 +438,58 @@ document.addEventListener('DOMContentLoaded', () => {
                 imageUrl: 'ug2.jpeg'
             }
         ];
-        
+
         displaySearchResults(searchResults);
     }
-    
-    
+
+
     function displaySearchResults(searchResults) {
         let resultsContainer = document.createElement('div');
         resultsContainer.classList.add('message', 'assistant');
-    
+
         let booksLabel = document.createElement('div');
         booksLabel.innerHTML = "<strong>Books available:</strong>";
         resultsContainer.appendChild(booksLabel);
-    
+
         let resultsList = document.createElement('ul');
         searchResults.forEach((result, index) => {
             let resultItem = document.createElement('li');
             resultItem.classList.add('search-result-item');
             // Assign an ID here using the index
             resultItem.id = `result-${index + 1}`; // This will create IDs like "result-1", "result-2", etc.
-    
+
             let image = document.createElement('img');
             image.src = result.imageUrl; // Use the image URL from the result
             image.alt = result.title;
             image.classList.add('book-image');
-    
+
             let titleSpan = document.createElement('span');
             titleSpan.textContent = `${index + 1}) ${result.title}`;
-    
+
             let linkAnchor = document.createElement('a');
             linkAnchor.href = result.url;
             linkAnchor.textContent = 'Open Link';
             linkAnchor.target = '_blank';
             linkAnchor.classList.add('book-link');
-    
+
             // Add a data attribute to store the URL which will be used in openSearchResultLink
             resultItem.setAttribute('data-url', result.url);
-    
+
             resultItem.appendChild(image);
             resultItem.appendChild(titleSpan);
             resultItem.appendChild(linkAnchor);
             resultsList.appendChild(resultItem);
         });
-    
+
         resultsContainer.appendChild(resultsList);
         let chatWindow = document.getElementById('chat-window');
         chatWindow.appendChild(resultsContainer);
-    
+
         scrollChatToBottom();
     }
-    
-    
-    // Open the links for the reading materials 
+
+
+    // Open the links for the reading materials
     function openSearchResultLink(number) {
         // Access the corresponding search result item by ID
         const resultItem = document.getElementById(`result-${number}`);
@@ -520,7 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
             speakAndShow(`I couldn't find link number ${number}.`);
         }
     }
-       
+
 
     // Function to display search results from Google Books API
     function displayGoogleBooksResults(books) {
@@ -529,50 +512,50 @@ document.addEventListener('DOMContentLoaded', () => {
         books.forEach((book, index) => {
             const bookDiv = document.createElement('div');
             bookDiv.classList.add('search-result');
-            
+
             // Check if there is an image URL and create an img element if there is
             if (book.image) {
                 const imageDiv = document.createElement('img');
                 imageDiv.src = book.image;
                 imageDiv.alt = "Book cover";
-                imageDiv.style.width = '100px'; 
+                imageDiv.style.width = '100px';
                 imageDiv.style.height = 'auto';
-                imageDiv.style.marginRight = '10px'; 
+                imageDiv.style.marginRight = '10px';
                 bookDiv.appendChild(imageDiv);
             }
-            
+
             // Create a div for the book title and set its text
             const titleDiv = document.createElement('div');
             titleDiv.classList.add('search-result-title');
             titleDiv.textContent = book.title;
-            
+
             // Create a div for the authors and set its text
             const authorsDiv = document.createElement('div');
             authorsDiv.classList.add('search-result-details');
             authorsDiv.textContent = `By: ${book.authors}`;
-            
+
             // Create an anchor element for the 'More Info' link
             const linkDiv = document.createElement('a');
             linkDiv.href = book.link;
             linkDiv.textContent = 'More Info';
             linkDiv.target = '_blank';
-    
+
             // Append title, authors, and link elements to the book div
             bookDiv.appendChild(titleDiv);
             bookDiv.appendChild(authorsDiv);
             bookDiv.appendChild(linkDiv);
-            
+
             // Append each book result directly to the chat window
             chatWindow.appendChild(bookDiv);
         });
         scrollChatToBottom();
     }
-    
+
 
     // Function to get a response from GPT based on the user's message
     function getGptResponse(userInput) {
-        const apiUrl = `http://localhost:8080/getGptResponse?userInput=${encodeURIComponent(userInput)}`;
-        
+        const apiUrl = `/getGptResponse?userInput=${encodeURIComponent(userInput)}`;
+
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
@@ -583,38 +566,40 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => console.error('Error fetching GPT response:', error));
     }
-    
+
 
 
     // Function to fetch books from the Google Books API based on a search term
     function fetchGoogleBooks(searchTerm) {
-        const apiKey = 'AIzaSyBkCWwJhEr20fGu4KCCNTZtvH8wlEYfQDE'; 
-        const googleBooksApiUrl = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(searchTerm)}&key=${apiKey}`;
+        const url = `/search-books?searchTerm=${encodeURIComponent(searchTerm)}`;
 
-        // Fetch the book data from Google Books API
-        fetch(googleBooksApiUrl)
+        // Fetch the book data from the server
+        fetch(url)
             .then(response => response.json())
             .then(data => {
-                const books = data.items.map(book => ({
-                    title: book.volumeInfo.title,
-                    authors: book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Author information unavailable',
-                    description: book.volumeInfo.description ? book.volumeInfo.description : 'No description available',
-                    link: book.volumeInfo.infoLink,
-                    image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : '' 
-                }));
-                
-                displayGoogleBooksResults(books);
+                if (data.items) {
+                    const books = data.items.map(book => ({
+                        title: book.volumeInfo.title,
+                        authors: book.volumeInfo.authors ? book.volumegeo.authors.join(', ') : 'Author information unavailable',
+                        description: book.volumeInfo.description ? book.volumeInfo.description : 'No description available',
+                        link: book.volumeInfo.infoLink,
+                        image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ''
+                    }));
+                    displayGoogleBooksResults(books);
+                } else {
+                    speakAndShow("No books found for your search.");
+                }
             })
-            .catch(error => console.error('Error fetching books from Google:', error));
+            .catch(error => console.error('Error fetching books:', error));
     }
-    
+
 
     // Function to scroll the chat window to the bottom
     function scrollChatToBottom() {
         let chatWindow = document.getElementById('chat-window');
         chatWindow.scrollTop = chatWindow.scrollHeight;
     }
-    
+
 
     recognition.start();
 });
